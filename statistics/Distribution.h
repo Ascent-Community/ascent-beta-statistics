@@ -29,18 +29,37 @@ namespace stats
 
       double discrete = false; // whether or not this distribution should be handled as a discrete signal
 
-      Distribution(size_t sim, const unsigned seed = 0);
+      Distribution(size_t sim, const unsigned seed = 0) : asc::Module(sim), generator(seed) {}
       
-      void seed(const unsigned seed);
+      void seed(const unsigned seed)
+      {
+         generator = std::mt19937(seed);
+      }
 
       virtual double compute() = 0; // Allows more generic use of manipulators
 
    protected:
       std::mt19937 generator;
 
-      void update();
+      void update()
+      {
+         if (variable)
+         {
+            if (discrete)
+            {
+               if (sample())
+                  assign();
+            }
+            else
+               assign();
+         }
+      }
 
    private:
-      void assign();
+      void assign()
+      {
+         if (time_advanced || first_update)
+            *variable = compute();
+      }
    };
 }
