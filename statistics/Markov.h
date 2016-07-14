@@ -60,7 +60,7 @@ namespace stats
    public:
       double* variable = nullptr; // variable to manipulate
 
-      Markov(size_t sim, double& sigma, const double beta_cor) : Distribution(sim), sigma(sigma), beta_cor(beta_cor)
+      Markov(size_t sim, double& sigma, const double beta_cor) : Distribution(sim), sigma(sigma), beta_cor(beta_cor) {}
 
       double compute()
       {
