@@ -1,4 +1,4 @@
-## Statistical modules for [Ascent](https://github.com/AnyarInc/cmt) architecture
+## Statistical modules for [Ascent-beta](https://github.com/AnyarInc/ascent-beta) architecture
 
 #### Why statistical modules specifically for Ascent?
 The goal of this library is not to rewrite the already excellent distribution generators that are provided in the [random](http://www.cplusplus.com/reference/random/) standard template library.
